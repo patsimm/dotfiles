@@ -1,41 +1,52 @@
-set $mod Mod4
-set $terminal xfce4-terminal
-set $ws1 "1:www"
-set $ws2 "2:code"
-set $ws3 "3:term"
-set $ws4 "4:music"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws0 "10"
-set $statuscmd "i3status"
+set $mod        Mod4
+set $terminal   urxvt
+set $statuscmd  i3status
 
-# assign apps to windows
-assign [class="Firefox"] $ws1
+set_from_resource $barTopHeight    barTopHeight   20
+set_from_resource $font            fontName       "Consolas"
+
+font pango:Iosevka Medium 11
+
+###
+### Windows
+###
+
+set $ws1        "1:www"
+set $ws2        "2:code"
+set $ws3        "3:term"
+set $ws4        "4:music"
+set $ws5        "5"
+set $ws6        "6"
+set $ws7        "7"
+set $ws8        "8"
+set $ws9        "9"
+set $ws0        "10"
+
+assign [class="Firefox"]  $ws1
 assign [class="Chromium"] $ws1
-assign [class="Atom"] $ws2
-#assign [class="Xfce4-terminal"] $ws3
-assign [class="Spotify"] $ws4
+assign [class="Atom"]     $ws2
+# assign [class="Xfce4-terminal"] $ws3
+assign [class="Spotify"]  $ws4
 
-font pango:monospace 8
+###
+### Keybindings
+###
 
 floating_modifier $mod
 
-bindsym $mod+Return exec $terminal
-bindsym $mod+Shift+q kill
-bindsym $mod+d exec dmenu_run
+bindsym $mod+Return   exec $terminal
+bindsym $mod+Shift+q  kill
+bindsym $mod+d        exec dmenu_run -lh $barTopHeight -fn $font-9
 
 # change focus
 # bindsym $mod+h focus left
 # bindsym $mod+j focus down
 # bindsym $mod+k focus up
 # bindsym $mod+l focus right
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
 
 # move focused window
 # bindsym $mod+Shift+j move up
@@ -103,6 +114,30 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bar {
-  status_command $statuscmd
-}
+###
+### Colors
+###
+
+# set colors from .Xresources (with fallback)
+set_from_resource $fg	      color2 #2AA198
+set_from_resource $bg	      color0 #1F2D3A
+set_from_resource $shade    color8 #ffffff
+set_from_resource $light    color5 #ffffff
+set_from_resource $urgent   color1 #ffffff
+
+# set window colors	    border	backgr.	text	indicator     child_border
+client.focused          $bg     $bg     $fg	    $light	    $fg
+client.focused_inactive $bg     $bg     $shade	$light	    $shade
+client.unfocused        $bg	    $bg     $shade	$light	    $shade
+client.urgent           $bg     $bg     $shade	$light	    $urgent
+client.placeholder      $bg	    $bg	    $shade	$light	    $bg
+
+# set window borders
+for_window [class="^.*"] border pixel 2
+
+###
+### Execute stuff
+###
+
+exec_always feh --bg-fill $HOME/.backgrounds/mountain.jpeg
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh

@@ -1,0 +1,15 @@
+# mute/unmute volume
+"amixer set Master toggle"
+	XF86AudioMute
+
+# raise volume
+"amixer set Master 3%+"
+	XF86AudioRaiseVolume
+
+# lower volume
+"amixer set Master 3%-"
+	XF86AudioLowerVolume
+
+# mute/unmut mic
+"amixer set Capture toggle"
+	XF86AudioMicMute
