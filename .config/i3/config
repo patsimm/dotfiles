@@ -114,7 +114,7 @@ bindsym $mod+r mode "resize"
 # set colors from .Xresources (with fallback)
 set_from_resource $fg	      color15     #2AA198
 set_from_resource $bg	      color0      #1F2D3A
-set_from_resource $shade    color8      #ffffff
+set_from_resource $shade    background  #ffffff
 set_from_resource $light    color7      #ffffff
 set_from_resource $urgent   color1      #ffffff
 set_from_resource $primary  color11     #ffb52a
@@ -136,10 +136,11 @@ for_window [class="^.*"] border pixel 1
 bindsym $mod+Return   exec $terminal
 bindsym $mod+Shift+q  kill
 bindsym $mod+d        exec dmenu_run \
-                      -lh 26 \
+                      -lh 24 \
                       -fn "Roboto-9" \
                       -nb '$bg' -nf '$fg' \
                       -sb '$primary' -sf '$shade'
 
 exec_always feh --bg-fill $HOME/.backgrounds/mountain.jpeg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+exec_always compton --config $HOME/.compton.conf -b

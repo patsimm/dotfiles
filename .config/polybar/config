@@ -45,9 +45,8 @@ foreground = ${colors.foreground}
 bottom = true
 
 line-size = 2
-line-color = ${colors.red1}
 
-border-size = 2
+border-size = 0
 border-color = ${colors.background-alt}
 
 padding-left = 1
@@ -81,7 +80,7 @@ foreground = ${colors.foreground}
 line-size = 2
 line-color = ${colors.red1}
 
-border-size = 2
+border-size = 0
 border-color = ${colors.background-alt}
 
 padding-left = 1
