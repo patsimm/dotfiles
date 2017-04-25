@@ -2,10 +2,7 @@ set $mod        Mod4
 set $terminal   urxvt
 set $statuscmd  i3status
 
-set_from_resource $barTopHeight    barTopHeight   20
-set_from_resource $font            fontName       "Consolas"
-
-font pango:Iosevka Medium 11
+font pango:Roboto 11
 
 ###
 ### Windows
@@ -34,10 +31,6 @@ assign [class="Spotify"]  $ws4
 
 floating_modifier $mod
 
-bindsym $mod+Return   exec $terminal
-bindsym $mod+Shift+q  kill
-bindsym $mod+d        exec dmenu_run -lh $barTopHeight -fn $font-9
-
 # change focus
 # bindsym $mod+h focus left
 # bindsym $mod+j focus down
@@ -53,10 +46,10 @@ bindsym $mod+Right  focus right
 # bindsym $mod+Shift+k move down
 # bindsym $mod+Shift+h move left
 # bindsym $mod+Shift+l move right
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
 
 bindsym $mod+h split h
 bindsym $mod+v split v
@@ -98,15 +91,15 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 mode "resize" {
-  bindsym $mod+h resize shrink width 10 px or 10 ppt
-  bindsym $mod+j resize grow height 10 px or 10 ppt
-  bindsym $mod+k resize shrink height 10 px or 10 ppt
-  bindsym $mod+l resize grow width 10 px or 10 ppt
+  bindsym $mod+h  resize shrink   width   10 px or 10 ppt
+  bindsym $mod+j  resize grow     height  10 px or 10 ppt
+  bindsym $mod+k  resize shrink   height  10 px or 10 ppt
+  bindsym $mod+l  resize grow     width   10 px or 10 ppt
 
-  bindsym Left resize shrink width 10 px or 10 ppt
-  bindsym Down resize grow height 10 px or 10 ppt
-  bindsym Up resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow width 10 px or 10 ppt
+  bindsym Left    resize shrink   width   10 px or 10 ppt
+  bindsym Down    resize grow     height  10 px or 10 ppt
+  bindsym Up      resize shrink   height  10 px or 10 ppt
+  bindsym Right   resize grow     width   10 px or 10 ppt
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
@@ -119,11 +112,12 @@ bindsym $mod+r mode "resize"
 ###
 
 # set colors from .Xresources (with fallback)
-set_from_resource $fg	      color2 #2AA198
-set_from_resource $bg	      color0 #1F2D3A
-set_from_resource $shade    color8 #ffffff
-set_from_resource $light    color5 #ffffff
-set_from_resource $urgent   color1 #ffffff
+set_from_resource $fg	      color15     #2AA198
+set_from_resource $bg	      color0      #1F2D3A
+set_from_resource $shade    color8      #ffffff
+set_from_resource $light    color7      #ffffff
+set_from_resource $urgent   color1      #ffffff
+set_from_resource $primary  color11     #ffb52a
 
 # set window colors	    border	backgr.	text	indicator     child_border
 client.focused          $bg     $bg     $fg	    $light	    $fg
@@ -138,6 +132,14 @@ for_window [class="^.*"] border pixel 2
 ###
 ### Execute stuff
 ###
+
+bindsym $mod+Return   exec $terminal
+bindsym $mod+Shift+q  kill
+bindsym $mod+d        exec dmenu_run \
+                      -lh 26 \
+                      -fn "Roboto-9" \
+                      -nb '$bg' -nf '$fg' \
+                      -sb '$primary' -sf '$shade'
 
 exec_always feh --bg-fill $HOME/.backgrounds/mountain.jpeg
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh

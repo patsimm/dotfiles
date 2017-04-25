@@ -1,13 +1,9 @@
-! General Settings
-*.barTopHeight:         23
-*.fontName:             "Iosevka Medium"
-
 ! urxvt Settings
 
-URxvt.font:             xft:Iosevka Medium:pixelsize=13:hinting=true:antialias=true:style=regular\
-                        ,xft:xos4 Terminess Powerline:pixelsize=16,xft:Noto Emoji:pixelsize=13
+URxvt.font:             xft:Consolas For Powerline:pixelsize=13:hinting=true:antialias=true:style=regular\
+                        ,xft:xos4 Terminess Powerline:pixelsize=16,xft:Symbola:pixelsize=10
 URxvt*scrollBar:        false
-URxvt.letterSpace:      -1
+URxvt.letterSpace:      -2
 URxvt.internalBorder:   6
 urxvt*transparent:      true
 urxvt*shading:          30
