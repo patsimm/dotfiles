@@ -50,8 +50,11 @@ line-color = ${colors.red1}
 border-size = 2
 border-color = ${colors.background-alt}
 
+padding-left = 1
+padding-right = 1
+
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = "FontAwesome:pixelsize=13;3"
 font-1 = "Roboto:pixelsize=10;2"
@@ -59,7 +62,7 @@ font-2 = "Symbola:pixelsize=13;3"
 
 modules-left = filesystem
 modules-center = i3
-modules-right = xkeyboard wlan eth date powermenu
+modules-right = xkeyboard date powermenu
 
 wm-restack = i3
 
@@ -82,7 +85,7 @@ border-size = 2
 border-color = ${colors.background-alt}
 
 padding-left = 1
-padding-right = 2
+padding-right = 1
 
 module-margin-left = 1
 module-margin-right = 1
@@ -139,11 +142,10 @@ interval = 25
 mount-0 = /
 mount-1 = /home
 
-format-prefix = "test"
-
 label-mounted = %{F#5f819d}%mountpoint%%{F-}: %free%%{F#888888}/%total%%{F-}
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
+label-mounted-overline = ${colors.foreground}
 
 [module/i3]
 type = internal/i3
@@ -194,7 +196,7 @@ label-urgent-margin = 1
 type = internal/xbacklight
 
 format = <ramp>
-format-underline = ${colors.foreground}
+; format-underline = ${colors.foreground}
 
 ramp-0 = 🌕
 ramp-1 = 🌔
@@ -281,7 +283,7 @@ label = %date% %time%
 type = internal/volume
 
 format-volume = <ramp-volume>
-format-volume-underline = ${colors.foreground}
+; format-volume-underline = ${colors.foreground}
 
 format-muted = 🔈
 format-muted-foreground = ${colors.foreground-alt}
@@ -300,14 +302,14 @@ adapter = AC
 full-at = 98
 
 format-charging = <animation-charging>
-format-charging-underline = ${colors.blue1}
+; format-charging-underline = ${colors.blue1}
 
 format-discharging = <ramp-capacity>
-format-discharging-underline = ${colors.yellow2}
+; format-discharging-underline = ${colors.yellow2}
 
 format-full = 
 format-full-foreground = ${colors.green1}
-format-full-underline = ${colors.green1}
+; format-full-underline = ${colors.green1}
 
 ramp-capacity-0             = 
 ramp-capacity-0-foreground  = ${colors.red1}
@@ -339,9 +341,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp>
-format-underline = ${colors.foreground}
+; format-underline = ${colors.foreground}
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${colors.red1}
+; format-warn-underline = ${colors.red1}
 
 label = %temperature%
 label-warn = %temperature%
@@ -358,12 +360,12 @@ ramp-7 = 
 ramp-8 = 
 ramp-9 = 
 ramp-9-foreground = ${colors.yellow1}
-ramp-9-underline = ${colors.yellow1}
+; ramp-9-underline = ${colors.yellow1}
 ramp-10 = 
 ramp-10-foreground = ${colors.red1}
-ramp-10-underline = ${colors.red1}
+; ramp-10-underline = ${colors.red1}
 ramp-foreground = ${colors.foreground}
-ramp-underline = ${colors.foreground}
+; ramp-underline = ${colors.foreground}
 
 [module/powermenu]
 type = custom/menu

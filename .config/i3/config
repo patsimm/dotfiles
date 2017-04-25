@@ -2,7 +2,7 @@ set $mod        Mod4
 set $terminal   urxvt
 set $statuscmd  i3status
 
-font pango:Roboto 11
+font pango:Roboto 9
 
 ###
 ### Windows
@@ -119,15 +119,15 @@ set_from_resource $light    color7      #ffffff
 set_from_resource $urgent   color1      #ffffff
 set_from_resource $primary  color11     #ffb52a
 
-# set window colors	    border	backgr.	text	indicator     child_border
-client.focused          $bg     $bg     $fg	    $light	    $fg
-client.focused_inactive $bg     $bg     $shade	$light	    $shade
-client.unfocused        $bg	    $bg     $shade	$light	    $shade
-client.urgent           $bg     $bg     $shade	$light	    $urgent
-client.placeholder      $bg	    $bg	    $shade	$light	    $bg
+# set window colors	    border    backgr.	  text	     indicator  child_border
+client.focused          $primary  $primary  $primary	 $light	    $primary
+client.focused_inactive $bg       $bg       $shade	   $light	    $shade
+client.unfocused        $bg	      $bg       $shade	   $light	    $shade
+client.urgent           $bg       $bg       $shade	   $light	    $urgent
+client.placeholder      $bg	      $bg	      $shade	   $light	    $bg
 
 # set window borders
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 
 ###
 ### Execute stuff
