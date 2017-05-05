@@ -94,7 +94,7 @@ font-1 = "Roboto:pixelsize=10;1"
 font-2 = "Symbola:pixelsize=13;3"
 
 modules-left = memory cpu
-modules-center =
+modules-center = xwindow
 modules-right = xbacklight battery temperature volume
 
 tray-position = right
